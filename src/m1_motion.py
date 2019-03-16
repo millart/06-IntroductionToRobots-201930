@@ -2,8 +2,8 @@
 An opportunity to explore how to make an EV3 Robot move.
 
 Authors: Dave Fisher, David Mutchler, Vibha Alangar,
-their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+their colleagues, and Emily Millard.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 # -----------------------------------------------------------------------------
 # TODO: 2.
@@ -21,10 +21,11 @@ def main():
     print("Running main on the robot.")
 
     # TODO: 2. Construct a RoseBot.  Send it as an argument to other functions.
-    run_test_spin()
-    run_test_go()
-    challenge1()
-    challenge2()
+    robot = rb.RoseBot()
+    run_test_spin(robot)
+    run_test_go(robot)
+    challenge1(robot)
+    challenge2(robot)
 
 
 def run_test_spin(robot):
@@ -37,7 +38,12 @@ def run_test_spin(robot):
     # -------------------------------------------------------------------------
     # TODO: 3. Implement this.
     # -------------------------------------------------------------------------
-
+    spin(robot, 2, 50)
+    time.sleep(2)
+    spin(robot, 1, 20)
+    time.sleep(2)
+    spin(robot, 5, 70)
+    time.sleep(2)
 
 def spin(robot, seconds, speed):
     """ :type robot: rb.RoseBot """
@@ -52,7 +58,11 @@ def spin(robot, seconds, speed):
     #
     # Use the DOT trick to figure out how to turn on and turn off motors.
     # -------------------------------------------------------------------------
-
+    robot.drive_system.left_motor.turn_on(speed)
+    robot.drive_system.right_motor.turn_on(-speed)
+    time.sleep(seconds)
+    robot.drive_system.left_motor.turn_off()
+    robot.drive_system.right_motor.turn_off()
 
 def run_test_go(robot):
     """
@@ -64,7 +74,7 @@ def run_test_go(robot):
     # -------------------------------------------------------------------------
     # TODO: 3. Implement this.
     # -------------------------------------------------------------------------
-
+    go(robot, 3, 50, 50)
 
 
 def go(robot, seconds, left_wheel_speed, right_wheel_speed):
@@ -74,7 +84,8 @@ def go(robot, seconds, left_wheel_speed, right_wheel_speed):
     #   Make the robot go, by using the pattern from SPIN function, except
     #   using the given speeds for the left and right wheels, respectively.
     # -------------------------------------------------------------------------
-
+    spin(robot, seconds, left_wheel_speed)
+    spin(robot, seconds, right_wheel_speed)
 
 def challenge1(robot):
     """ Your instructor will tell you this challenge. """
