@@ -12,6 +12,17 @@ their colleagues, and Emily Millard.
 #   When you have successfully run this program, change this _TODO_ to DONE.
 # -----------------------------------------------------------------------------
 
+#  Reminder: Code to start the robot
+#
+#  IP Address for the first robot: 137.112.219.207
+#  IP Address for robot 27: 137.112.219.134
+#
+#  ls
+#  cd millard
+#  cd src
+#  python m1_motion.py
+
+
 import simple_rosebotics as rb
 import time
 
@@ -20,7 +31,7 @@ def main():
     """ Calls the other functions to test/demo them. """
     print("Running main on the robot.")
 
-    # TODO: 2. Construct a RoseBot.  Send it as an argument to other functions.
+    # DONE: 2. Construct a RoseBot.  Send it as an argument to other functions.
     robot = rb.RoseBot()
     run_test_spin(robot)
     run_test_go(robot)
@@ -36,7 +47,7 @@ def run_test_spin(robot):
       :type robot:  rb.RoseBot
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this.
+    # DONE: 3. Implement this.
     # -------------------------------------------------------------------------
     spin(robot, 2, 50)
     time.sleep(2)
@@ -45,10 +56,11 @@ def run_test_spin(robot):
     spin(robot, 5, 70)
     time.sleep(2)
 
+
 def spin(robot, seconds, speed):
     """ :type robot: rb.RoseBot """
     # -------------------------------------------------------------------------
-    # TODO: 4.
+    # DONE: 4.
     #   Makes the robot move, by using this pattern:
     #    1. Turn on the wheel motors at the given speed but with:
     #        -- LEFT wheel POSITIVE speed
@@ -64,6 +76,7 @@ def spin(robot, seconds, speed):
     robot.drive_system.left_motor.turn_off()
     robot.drive_system.right_motor.turn_off()
 
+
 def run_test_go(robot):
     """
     Tests the   go   function, by making the robot go several times,
@@ -75,6 +88,10 @@ def run_test_go(robot):
     # TODO: 3. Implement this.
     # -------------------------------------------------------------------------
     go(robot, 3, 50, 50)
+    time.sleep(2)
+    go(robot, 1, 15, 75)
+    time.sleep(2)
+    go(robot, 5, 100, 30)
 
 
 def go(robot, seconds, left_wheel_speed, right_wheel_speed):
@@ -86,6 +103,7 @@ def go(robot, seconds, left_wheel_speed, right_wheel_speed):
     # -------------------------------------------------------------------------
     spin(robot, seconds, left_wheel_speed)
     spin(robot, seconds, right_wheel_speed)
+
 
 def challenge1(robot):
     """ Your instructor will tell you this challenge. """
