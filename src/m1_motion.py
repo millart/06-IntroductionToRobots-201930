@@ -22,6 +22,10 @@ their colleagues, and Emily Millard.
 #  cd src
 #  python m1_motion.py
 
+#  Additional Notes:
+#
+#  cd .. = changes directory
+
 
 import simple_rosebotics as rb
 import time
